@@ -1,6 +1,6 @@
 # servo-motor
 
-Servo motors 
+A Servo Motor is a small device that has an output shaft. This shaft can be positioned to specific angular positions by sending the servo a coded signal. As long as the coded signal exists on the input line, the servo will maintain the angular position of the shaft. If the coded signal changes, the angular position of the shaft changes. In practice, servos are used in radio-controlled airplanes to position control surfaces like the elevators and rudders. They are also used in radio-controlled cars, puppets, and of course, robots.
 Usually, they have a servo arm that can turn 180 degrees. Using the Arduino, we can tell a servo to go to a specified position and it will go there. 
 
 We will need the following things:
@@ -53,6 +53,10 @@ At 1 millisecond it represents 0 degrees and at 2 milliseconds it represents 180
 In between, it represents the value from 0–180. This is a very good and reliable method. The graphic makes it a little easier to understand.
 
 Remember that using the Servo library automatically disables PWM functionality on PWM pins 9 and 10 on the Arduino UNO and similar boards
+
+How Do You Communicate the Angle at Which the Servo Should Turn?
+The control wire is used to communicate the angle. The angle is determined by the duration of a pulse that is applied to the control wire. This is called Pulse Coded Modulation. The servo expects to see a pulse every 20 milliseconds (.02 seconds). The length of the pulse will determine how far the motor turns. A 1.5 millisecond pulse, for example, will make the motor turn to the 90-degree position (often called as the neutral position). If the pulse is shorter than 1.5 milliseconds, then the motor will turn the shaft closer to 0 degrees. If the pulse is longer than 1.5 milliseconds, the shaft turns closer to 180 degrees.
+
 
 Code breakdown
 The code simply declares the servo object and then initializes the servo by using the servo.attach() function. 
